@@ -1,0 +1,55 @@
+# This project is intended to test some of the features offered by OpenCV to implement attractive projects in AI
+
+# importing matplotlib and cv2 
+
+from matplotlib import pyplot as plt
+import cv2  
+
+# load images from any path
+path = r'/path/file.jpg' 
+
+# Reading an image in default mode 
+src = cv2.imread(path) 
+   
+    
+# Using cv2.cvtColor() method 
+# Using cv2.COLOR_BGR2GRAY color space 
+# conversion code 
+image = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY ) 
+
+#display image throuh matplotlib
+plt.imshow(cv2.cvtColor(image, cv2.COLOR_GRAY2RGB))
+plt.show()
+
+
+# method 手段
+#A Gaussian filter is a linear filter. It's usually used to blur the image or to reduce noise
+#The traditional Canny edge detection algorithm is sensitive to noise, therefore,
+#it's easy to lose weak edge information when filtering out the noise, 
+#and its fixed parameters show poor adaptability.
+
+name = input ('Welcome, whats your name?:\n')
+value = input("Please enter a string:\n")
+print( 'Hello{}')
+path = r'/path/file.jpg' 
+
+
+#Declare a class
+class handwriting:
+
+     
+        
+      def process_img(self, img): #access instances of an image 
+      gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+      if self.blur == 2:
+          gray = cv2.GaussianBlur(gray, (9, 9), 0)
+          canny = cv2.Canny(gray, 25, 45)
+      elif self.blur == 1:
+          gray = cv2.GaussianBlur(gray, (3, 3), 0)
+          canny = cv2.Canny(gray, 25, 45)
+      else:  # no blur
+          canny = cv2.Canny(gray, 50, 75)
+      canny = self.rescale(canny, self.pseudoDim)
+      r, res = cv2.threshold(canny, 50, 255, cv2.THRESH_BINARY_INV)
+
+      return res
