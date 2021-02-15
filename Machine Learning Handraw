@@ -5,21 +5,6 @@
 from matplotlib import pyplot as plt
 import cv2  
 
-# load images from any path
-path = r'/path/file.jpg' 
-
-# Reading an image in default mode 
-src = cv2.imread(path) 
-   
-    
-# Using cv2.cvtColor() method 
-# Using cv2.COLOR_BGR2GRAY color space 
-# conversion code 
-image = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY ) 
-
-#display image throuh matplotlib
-plt.imshow(cv2.cvtColor(image, cv2.COLOR_GRAY2RGB))
-plt.show()
 
 
 # method 手段
@@ -29,15 +14,16 @@ plt.show()
 #and its fixed parameters show poor adaptability.
 
 name = input ('Welcome, whats your name?:\n')
-value = input("Please enter a string:\n")
-print( 'Hello{}')
-path = r'/path/file.jpg' 
+print( 'Hello: ',name)
+im=input('Please input the path of your file:\n')
+# Reading an image in default mode 
+img = cv2.imread(im) 
 
 
 #Declare a class
+###Need to fix the class
 class handwriting:
 
-     
         
       def process_img(self, img): #access instances of an image 
       gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -53,3 +39,5 @@ class handwriting:
       r, res = cv2.threshold(canny, 50, 255, cv2.THRESH_BINARY_INV)
 
       return res
+
+
