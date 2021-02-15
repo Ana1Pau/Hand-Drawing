@@ -18,10 +18,11 @@ print( 'Hello: ',name)
 im=input('Please input the path of your file:\n')
 # Reading an image in default mode 
 img = cv2.imread(im) 
-
+ 
 
 #Declare a class
 ###Need to fix the class
+## This class should be able to return an image processed.
 class handwriting:
 
         
